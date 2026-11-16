@@ -1,0 +1,53 @@
+/* Styles for UI added on top of the original SYNAPSE stylesheet (global.css stays a verbatim copy).
+   Colors, radii and type follow the existing design tokens used in global.css. */
+
+/* ---------- Shared Back button ---------- */
+.back-row{display:flex;align-items:center;margin-bottom:-6px}
+.back-btn{display:inline-flex;align-items:center;gap:7px;min-height:32px;padding:0 13px 0 10px;border-radius:9px;border:1px solid #22304D;background:rgba(18,28,49,.7);color:#C9D4E5;font:600 12.5px Inter,system-ui,sans-serif;cursor:pointer;white-space:nowrap;transition:background .15s,border-color .15s,color .15s}
+.back-btn:hover{background:#162138;border-color:#3B4E78;color:#fff}
+.back-btn:focus-visible{outline:2px solid #22D3EE;outline-offset:2px}
+.back-btn .back-ico{width:16px;height:16px;color:#67E8F9;transition:transform .15s}
+.back-btn:hover .back-ico{transform:translateX(-2px)}
+@media (prefers-reduced-motion:reduce){.back-btn .back-ico{transition:none}.back-btn:hover .back-ico{transform:none}}
+
+/* ---------- Admin Settings: horizontal section bar ---------- */
+.settings-bar{display:flex;flex-wrap:nowrap;gap:4px;padding:6px;background:linear-gradient(180deg,#121C31,#0F182B);border:1px solid #22304D;border-radius:14px;overflow-x:auto;scrollbar-width:thin;scrollbar-color:#2B3A5C transparent;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
+.settings-bar::-webkit-scrollbar{height:6px}.settings-bar::-webkit-scrollbar-thumb{background:#2B3A5C;border-radius:6px}
+.settings-tab{flex:1 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:40px;padding:0 11px;border:0;border-radius:10px;background:none;color:#A9B7CC;font:600 13px Inter,system-ui,sans-serif;white-space:nowrap;cursor:pointer;position:relative;scroll-snap-align:start;transition:background .15s,color .15s}
+.settings-tab .nav-ico{width:17px;height:17px;color:#6E86A6;transition:color .15s}
+.settings-tab:hover{background:#162138;color:#fff}
+.settings-tab:hover .nav-ico{color:#A9B7CC}
+.settings-tab.on{background:linear-gradient(90deg,rgba(34,211,238,.16),rgba(139,92,246,.1));color:#fff}
+.settings-tab.on .nav-ico{color:#67E8F9}
+.settings-tab.on::after{content:"";position:absolute;left:14px;right:14px;bottom:3px;height:2px;border-radius:2px;background:linear-gradient(90deg,#22D3EE,#8B5CF6)}
+.settings-tab:focus-visible{outline:2px solid #22D3EE;outline-offset:-2px}
+.settings-body{display:flex;flex-direction:column;gap:12px;min-width:0}
+/* Wide screens: a single row. Medium widths: a balanced grid (4×2, then 2×4) so no tab is clipped
+   or left alone on a row. Phones: one compact row that scrolls horizontally. */
+@media (min-width:721px) and (max-width:1559px){.settings-bar{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));overflow:visible}.settings-tab{min-width:0}}
+@media (min-width:721px) and (max-width:1099px){.settings-bar{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:720px){.settings-tab{flex:0 0 auto;padding:0 12px;font-size:12.5px}}
+
+/* ---------- Employee profile ---------- */
+.profile-head{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.profile-head h2{font-size:22px;font-weight:700}
+.profile-meta{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:6px}
+.profile-meta span{display:inline-flex;align-items:center;gap:6px}
+.profile-meta .nav-ico{width:15px;height:15px}
+.profile-sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.profile-kv{grid-template-columns:minmax(120px,max-content) 1fr;gap:0}
+.profile-kv dt,.profile-kv dd{padding:10px 0;border-bottom:1px solid #1C2740}
+.profile-kv dt:last-of-type,.profile-kv dd:last-of-type{border-bottom:0}
+.profile-kv dd{overflow-wrap:anywhere}
+.profile-switches .switch{border-bottom:1px solid #1C2740}
+.profile-switches .switch:last-child{border-bottom:0}
+@media (max-width:520px){.profile-kv{grid-template-columns:1fr}.profile-kv dt{border-bottom:0;padding-bottom:0}.profile-kv dd{padding-top:3px}}
+
+/* ---------- Policy acknowledgments ---------- */
+.policy-card{display:flex;flex-direction:column;gap:8px}
+.policy-card-f{margin-top:auto;padding-top:12px;border-top:1px solid #1C2740;display:flex;align-items:center;gap:10px}
+.policy-id{white-space:nowrap;flex:none}
+.policy-action{min-width:132px}
+.policy-action .nav-ico{width:16px;height:16px;color:currentColor}
+.status-done{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;flex:none}
+.status-done .nav-ico{width:14px;height:14px;color:currentColor}
